@@ -1,0 +1,36 @@
+- name: Install base packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - vim
+    - zsh
+    - git
+  become: yes
+
+- name: Disable selinux
+  selinux:
+    state: disabled
+  become: yes
+
+- name: Disable firewall
+  service:
+    name: firewalld
+    state: stopped
+    enabled: no
+
+- name: Configure the hosts file
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+
+- name: Disable swap
+  command: swapoff -a
+
+- name: Remove swap line from fstab file
+  lineinfile:
+    path: /etc/fstab
+    state: absent
+    regexp: '^/swapfile'
+  notify:
+    - Restart the system

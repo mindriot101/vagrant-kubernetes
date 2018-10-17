@@ -1,1 +1,4 @@
 .vagrant
+kubeconfig
+*.retry
+ssh.config

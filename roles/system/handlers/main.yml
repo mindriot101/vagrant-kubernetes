@@ -1,0 +1,2 @@
+- name: Restart the system
+  command: reboot
