@@ -12,10 +12,11 @@
 
 - `vagrant up`
 - `vagrant ssh-config > ssh.config`
-- `ansible playbook -i hosts site.yml`
 - Ensure all hosts are routable via /etc/hosts (VM specific)
-- Install docker using [Docker CE instructions](https://docs.docker.com/install/)
-- Install k8s via [kubeadm documentation](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
+- `ansible playbook -i hosts site.yml`
+- This:
+    - Installs docker using [Docker CE instructions](https://docs.docker.com/install/)
+    - Install k8s via [kubeadm documentation](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
 - Use the following options to `kubeadm init`:
     - `--apiserver-advertise-address 192.168.33.10` - IP address of the master node in the private network
     - `--pod-network-cidr 10.244.0.0/16` - for Flannel
