@@ -11,6 +11,7 @@
 ## Commands
 
 - `vagrant up`
+- `vagrant ssh-config > ssh.config`
 - `ansible playbook -i hosts site.yml`
 - Ensure all hosts are routable via /etc/hosts (VM specific)
 - Install docker using [Docker CE instructions](https://docs.docker.com/install/)
