@@ -10,12 +10,8 @@
 
 - name: Install k8s packages
   yum:
-    name: "{{ item }}"
+    name: [kubeadm, kubelet, kubectl]
     state: present
-  with_items:
-    - kubeadm
-    - kubelet
-    - kubectl
 
 - name: Enable kubernetes services
   service:
